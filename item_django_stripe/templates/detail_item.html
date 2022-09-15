@@ -8,7 +8,13 @@
     <h1>Товар</h1>
     <p>Название:{{ product.name }}</p>
     <p>Описание товара: {{ product.description }}</p>
-    <p>Стоимость: $ {{ product.price }}</p>
+    <p>Стоимость: 
+    {% if product.currency == 'usd' %}
+    $ {{ product.price }}
+    {% else %}
+    ₽ {{ product.price }}
+    {% endif %}
+    </p>
     <a href="{% url 'create-checkout-session' pk=product.pk %}">
         <button type="button" id="checkout-button">Buy in usd</button>
     </a>

@@ -35,13 +35,41 @@ def ItemDetail(request, pk):
 def create_checkout_session(request, pk):
     product = get_object_or_404(Item, pk=pk)
     YOUR_DOMAIN = "http://158.160.4.33"
+    if product.currency == 'usd':
+        checkout_session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            line_items=[
+                {
+                    'price_data': {
+                        'currency': 'usd',
+                        'unit_amount': int(product.price) * 100,
+                        'product_data': {
+                            'name': product.name
+                        },
+                    },
+                    'quantity': 1,
+                },
+            ],
+            metadata={
+                "product_id": product.id
+            },
+            mode='payment',
+            success_url=YOUR_DOMAIN + '/success/',
+            cancel_url=YOUR_DOMAIN + '/cancel/',
+        )
+
+        return redirect(checkout_session.url, code=303)
     checkout_session = stripe.checkout.Session.create(
         payment_method_types=['card'],
         line_items=[
             {
                 'price_data': {
                     'currency': 'usd',
-                    'unit_amount': int(product.price) * 100,
+                    'unit_amount': (
+                        int(int(product.price) / 
+                            data['Valute']['USD']['Value']
+                        )*100
+                    ),
                     'product_data': {
                         'name': product.name
                     },
@@ -63,17 +91,41 @@ def create_checkout_session(request, pk):
 def create_checkout_session_rub(request, pk):
     product = get_object_or_404(Item, pk=pk)
     YOUR_DOMAIN = "http://158.160.4.33"
+    if product.currency == 'usd':
+        checkout_session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            line_items=[
+                {
+                    'price_data': {
+                        'currency': 'rub',
+                        'unit_amount': (
+                            int(product.price) * int(
+                                data['Valute']['USD']['Value'] * 100
+                            )
+                        ),
+                        'product_data': {
+                            'name': product.name
+                        },
+                    },
+                    'quantity': 1,
+                },
+            ],
+            metadata={
+                "product_id": product.id
+            },
+            mode='payment',
+            success_url=YOUR_DOMAIN + '/success/',
+            cancel_url=YOUR_DOMAIN + '/cancel/',
+        )
+
+        return redirect(checkout_session.url, code=303)
     checkout_session = stripe.checkout.Session.create(
         payment_method_types=['card'],
         line_items=[
             {
                 'price_data': {
                     'currency': 'rub',
-                    'unit_amount': (
-                        int(product.price) * int(
-                            data['Valute']['USD']['Value'] * 100
-                        )
-                    ),
+                    'unit_amount': int(product.price) * 100,
                     'product_data': {
                         'name': product.name
                     },
@@ -88,5 +140,4 @@ def create_checkout_session_rub(request, pk):
         success_url=YOUR_DOMAIN + '/success/',
         cancel_url=YOUR_DOMAIN + '/cancel/',
     )
-
     return redirect(checkout_session.url, code=303)
