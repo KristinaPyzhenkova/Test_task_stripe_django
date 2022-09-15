@@ -99,5 +99,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', default='sk_test_11ssss1s1HIg7coySkIsnm7MoyV3HIyjJej4s1J18aPhCKByUpeIrROtV9pjmNKFvC5AH0Xmq9I9KAxbvdrF1hodZ00YxOMcYOU')
-STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', default='pk_test_11EeeE1E1HIg7coySx0GGzKVEZCu4dwqXioUbALmFh0fVuhcnGkh9EyRuW5Le2Hv6NMa1u4vvwuyIxmUE8nIs1tSc0051DiZyGo')
+STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY', default='sk_test_11ssss1s1HIg7coySkIsnm7MoyV3HIyjJej4s1J18aPhCKByUpeIrROtV9pjmNKFvC5AH0Xmq9I9KAxbvdrF1hodZ00YxOMcYOU')
+STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY', default='pk_test_11EeeE1E1HIg7coySx0GGzKVEZCu4dwqXioUbALmFh0fVuhcnGkh9EyRuW5Le2Hv6NMa1u4vvwuyIxmUE8nIs1tSc0051DiZyGo')
