@@ -9,7 +9,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', default='123456789')
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-environ.Env.read_env(env_file=str(BASE_DIR) + '/item_django_stripe/.env')
+environ.Env.read_env()
 
 DEBUG = True
 
