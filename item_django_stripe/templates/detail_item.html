@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+  <head>
+    <title>Buy cool new item</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
+  </head>
+  <body>
+    <h1>Товар</h1>
+    <p>Название:{{ product.name }}</p>
+    <p>Описание товара: {{ product.description }}</p>
+    <p>Стоимость: $ {{ product.price }}</p>
+    <a href="{% url 'create-checkout-session' pk=product.pk %}">
+        <button type="button" id="checkout-button">Buy in usd</button>
+    </a>
+    <a href="{% url 'create-checkout-session_rub' pk=product.pk %}">
+      <button type="button" id="checkout-button">Buy in rub</button>
+  </a>
+    <a href="{% url 'items'%}">
+        <h3>Вернуться к списку товаров</h3>
+    </a>
+  </body>
+</html>
+  

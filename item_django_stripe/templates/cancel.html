@@ -1,0 +1,14 @@
+{% load static %}
+<html>
+  <head>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
+  </head>
+  <body>
+    <section>
+      <h1>Отмена!</h1>
+    </section>
+    <a href="{% url 'items'%}">
+      <h3>Вернуться к списку товаров</h3>
+    </a>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+
+body {
+font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+font-size: 16px;
+-webkit-font-smoothing: antialiased;
+justify-content: center;
+align-content: center;
+height: 100vh;
+width: 100vw;
+}
+/* Buttons and links */
+button {
+background: #5469d4;
+color: #ffffff;
+font-family: Arial, sans-serif;
+border-radius: 0 0 4px 4px;
+border: 0;
+padding: 12px 16px;
+font-size: 16px;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.2s ease;
+}
+
+.line_block_items {
+    display: block;
+    position: relative;
+    background:rgba(240,240,240,1);
+    text-align: center;
+    width:32%;
+    height:10%;
+    margin: 10px 5px;
+    padding: 5px;
+    float: left;
+    -webkit-transition:all 0.35s ease;
+    transition:all 0.35s ease;
+    font-family: Montserrat-Regular;
+    padding:20px 0;
+}
