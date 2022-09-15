@@ -12,10 +12,9 @@ SECRET_KEY = os.getenv('SECRET_KEY', default='123456789')
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*', '127.0.0.1', 'localhost']
-
 
 
 INSTALLED_APPS = [
@@ -59,14 +58,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'item_django_stripe.wsgi.application'
 
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -83,7 +80,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 
 LANGUAGE_CODE = 'en-us'
@@ -103,5 +99,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STRIPE_SECRET_KEY = 'sk_test_51LhtK3K5HIg7coySkIsnm7MoyV3HIyjJej4s1J18aPhCKByUpeIrROtV9pjmNKFvC5AH0Xmq9I9KAxbvdrF1hodZ00YxOMcYOU'
-STRIPE_PUBLIC_KEY = 'pk_test_51LhtK3K5HIg7coySx0GGzKVEZCu4dwqXioUbALmFh0fVuhcnGkh9EyRuW5Le2Hv6NMa1u4vvwuyIxmUE8nIs1tSc0051DiZyGo'
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', default='123456789')
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', default='123456789')

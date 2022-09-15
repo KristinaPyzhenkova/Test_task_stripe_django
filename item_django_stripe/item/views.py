@@ -66,9 +66,9 @@ def create_checkout_session(request, pk):
                 'price_data': {
                     'currency': 'usd',
                     'unit_amount': (
-                        int(int(product.price) / 
-                            data['Valute']['USD']['Value']
-                        )*100
+                        int(
+                            int(product.price) / data['Valute']['USD']['Value']
+                        ) * 100
                     ),
                     'product_data': {
                         'name': product.name
