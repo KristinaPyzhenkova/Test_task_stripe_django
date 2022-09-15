@@ -34,7 +34,7 @@ def ItemDetail(request, pk):
 
 def create_checkout_session(request, pk):
     product = get_object_or_404(Item, pk=pk)
-    YOUR_DOMAIN = "http://158.160.12.217"
+    YOUR_DOMAIN = "http://158.160.4.33"
     checkout_session = stripe.checkout.Session.create(
         payment_method_types=['card'],
         line_items=[
@@ -62,7 +62,7 @@ def create_checkout_session(request, pk):
 
 def create_checkout_session_rub(request, pk):
     product = get_object_or_404(Item, pk=pk)
-    YOUR_DOMAIN = "http://158.160.12.217"
+    YOUR_DOMAIN = "http://158.160.4.33"
     checkout_session = stripe.checkout.Session.create(
         payment_method_types=['card'],
         line_items=[
