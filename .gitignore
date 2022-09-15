@@ -102,7 +102,6 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-item_django_stripe/item_django_stripe/.env
 .env
 .venv
 env/
