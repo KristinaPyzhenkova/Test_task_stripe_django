@@ -41,7 +41,7 @@ def create_checkout_session(request, pk):
             {
                 'price_data': {
                     'currency': 'usd',
-                    'unit_amount': int(product.price)*100,
+                    'unit_amount': int(product.price) * 100,
                     'product_data': {
                         'name': product.name
                     },
@@ -70,8 +70,8 @@ def create_checkout_session_rub(request, pk):
                 'price_data': {
                     'currency': 'rub',
                     'unit_amount': (
-                        int(product.price)*int(
-                            data['Valute']['USD']['Value']*100
+                        int(product.price) * int(
+                            data['Valute']['USD']['Value'] * 100
                         )
                     ),
                     'product_data': {
