@@ -5,7 +5,6 @@ import environ
 env = environ.Env()
 
 
-
 SECRET_KEY = os.getenv('SECRET_KEY', default='123456789')
 
 
